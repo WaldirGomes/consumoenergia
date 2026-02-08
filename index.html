@@ -5,29 +5,23 @@
     <title>Calculadora de Energia</title>
 </head>
 <body>
-
     <h2>Consumo de Energia</h2>
-
     <div>
         <label>Potência Aparelho (Watts):</label><br>
         <input type="number" id="potencia" value="100" oninput="calcular()">
     </div><br>
-
     <div>
         <label>Tempo de uso por dia (Horas):</label><br>
         <input type="number" id="horas" value="24" min="0" max="24" oninput="calcular()">
     </div><br>
-
     <div>
         <label>Dias de Uso:</label><br>
         <input type="number" id="dias" value="30" oninput="calcular()">
     </div><br>
-
     <div>
         <label>Preço kWh (R$):</label><br>
         <input type="number" id="precoKwh" step="0.01" value="1" oninput="calcular()">
     </div><br>
-
     <div style="background-color: #eeeeee; padding: 10px; width: fit-content;">
         <div>
             VALOR P/HORA: <span id="valorHora">R$ 0,10</span>
@@ -36,27 +30,18 @@
             VALOR TOTAL: <span id="valorTotal">R$ 72,00</span>
         </div>
     </div>
-
     <script>
         function calcular() {
             const potencia = parseFloat(document.getElementById('potencia').value) || 0;
             const horas = parseFloat(document.getElementById('horas').value) || 0;
             const dias = parseInt(document.getElementById('dias').value) || 0;
             const precoKwh = parseFloat(document.getElementById('precoKwh').value) || 0;
-
-            // Cálculo Valor por Hora
             const valorHora = (potencia / 1000) * precoKwh;
-            
-            // Cálculo Valor Total
             const valorTotal = valorHora * horas * dias;
-
             document.getElementById('valorHora').innerText = 'R$ ' + valorHora.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             document.getElementById('valorTotal').innerText = 'R$ ' + valorTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
-
-        // Inicializa o cálculo ao carregar
         window.onload = calcular;
     </script>
-
 </body>
 </html>
