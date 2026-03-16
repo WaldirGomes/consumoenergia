@@ -1,3 +1,3 @@
 # ConsumoEnergia
 
-https://waldirgomes.github.io/ConsumoEnergia/
+https://waldirgomes.github.io/consumoenergia/
